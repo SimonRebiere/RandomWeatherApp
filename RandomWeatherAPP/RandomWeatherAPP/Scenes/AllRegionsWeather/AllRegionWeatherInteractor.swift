@@ -13,14 +13,14 @@ protocol AllRegionWeatherInteractorMethods {
     func loadDatas()
     func showMoreDetails(for city: String)
     
-    var viewModel: LocationsWeatherViewModel { get set }
+    var viewModel: LocationsWeatherViewModel { get }
 }
 
 class AllRegionWeatherInteractor: AllRegionWeatherInteractorMethods {
     
     let locationService: LocationWeatherServiceMethods
     var cancelBag = Set<AnyCancellable>()
-    @ObservedObject var viewModel: LocationsWeatherViewModel = LocationsWeatherViewModel()
+    var viewModel: LocationsWeatherViewModel
     
     let locations: [String] = ["44418", // London
                                "890869", //Gothenburg
@@ -31,24 +31,31 @@ class AllRegionWeatherInteractor: AllRegionWeatherInteractorMethods {
     
     init(locationService: LocationWeatherServiceMethods = LocationWeatherService()) {
         self.locationService = locationService
+        self.viewModel = LocationsWeatherViewModel()
     }
     
     func loadDatas() {
-        for location in locations {
-            locationService.getWeather(for: location)
-                .receive(on: RunLoop.main)
-                .sink(receiveCompletion: { _ in
-                    print("completed")
-                },
-                      receiveValue: { [weak self] response in
+        let publishers = locations.map { locationService.getWeather(for: $0) }
+
+        Publishers.MergeMany(publishers)
+            .collect()
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { _ in
+                print("completed")
+            },
+                  receiveValue: { [weak self] responses in
+                let models = responses.map { response -> LocationModel in
                     let actualTemp = response.consolidatedWeather.first?.theTemp ?? 0.0
                     let nextDaysWeather = response.consolidatedWeather.map{ weather in
                         return DayWeather(minTemp: weather.minTemp, maxTemp: weather.maxTemp, date: weather.applicableDate)
                     }
-                    let model = LocationModel(title: response.title, country: response.parent.title, actualTemp: actualTemp, nextDaysWeather: nextDaysWeather)
-                    self?.viewModel.models.append(model)
-                }).store(in: &cancelBag)
-        }
+
+                    let state = response.consolidatedWeather.first?.weatherStateName ?? "unknown"
+                    let stateAbbreviation = response.consolidatedWeather.first?.weatherStateAbbr ?? ""
+                    return LocationModel(title: response.title, country: response.parent.title, actualTemp: actualTemp, nextDaysWeather: nextDaysWeather, state: state, imageURL: stateAbbreviation)
+                }
+                self?.viewModel.models.append(contentsOf: models)
+            }).store(in: &cancelBag)
     }
     
     func showMoreDetails(for city: String) {
@@ -57,8 +64,7 @@ class AllRegionWeatherInteractor: AllRegionWeatherInteractorMethods {
         else { return }
 
         model.detailHidden.toggle()
-        viewModel.models.insert(model, at: index)
-        viewModel.models.remove(at: index)
+        viewModel.models.move(fromOffsets: IndexSet(integer: index), toOffset: index)
     }
 }
 
@@ -68,25 +74,29 @@ class LocationsWeatherViewModel: ObservableObject {
 
 class LocationModel: ObservableObject, Identifiable {
     var id = UUID()
-    @Published var title: String
-    @Published var country: String
-    @Published var actualTemp: Double
-    @Published var nextDaysWeather: [DayWeather]
-    @Published var detailHidden = true
+    var title: String
+    var country: String
+    var actualTemp: Double
+    var nextDaysWeather: [DayWeather]
+    var state: String
+    var imageURL: URL?
+    var detailHidden = true
     
-    init(title: String, country: String, actualTemp: Double, nextDaysWeather: [DayWeather]) {
+    init(title: String, country: String, actualTemp: Double, nextDaysWeather: [DayWeather], state: String, imageURL: String) {
         self.title = title
         self.country = country
         self.actualTemp = actualTemp
         self.nextDaysWeather = nextDaysWeather
+        self.state = state
+        self.imageURL = URL(string: "https://www.metaweather.com/static/img/weather/png/64/\(imageURL).png")
     }
 }
 
 class DayWeather: ObservableObject, Identifiable {
     let id = UUID()
-    @Published var minTemp: Double
-    @Published var maxTemp: Double
-    @Published var date: String
+    var minTemp: Double
+    var maxTemp: Double
+    var date: String
     
     init(minTemp: Double, maxTemp: Double, date: String) {
         self.minTemp = minTemp

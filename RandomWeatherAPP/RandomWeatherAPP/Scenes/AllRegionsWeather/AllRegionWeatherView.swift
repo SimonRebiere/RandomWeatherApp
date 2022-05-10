@@ -19,11 +19,21 @@ struct AllRegionWeatherView: View {
     var body: some View {
         NavigationView {
             List(viewModel.models) {  model in
-                VStack(alignment: .center) {
-                    
-                    Text("City : \(model.title), Country: \(model.country)")
-                    Text("\(String(format: "%.1f", model.actualTemp))C°")
-                    
+                VStack {
+                    HStack {
+                        Spacer()
+                        VStack(alignment: .center) {
+                            
+                            Text("\(model.title) - \(model.country)")
+                            Text(model.state)
+                            Text("\(String(format: "%.1f", model.actualTemp))C°")
+                        }.onTapGesture {
+                            interactor.showMoreDetails(for: model.title)
+                        }
+                        Spacer()
+                        AsyncImage(url: model.imageURL)
+                            .aspectRatio(contentMode: .fit)
+                    }
                     if !model.detailHidden {
                         ScrollView(.horizontal) {
                             HStack(spacing: 8) {
@@ -34,14 +44,11 @@ struct AllRegionWeatherView: View {
                             }
                         }
                     }
-                }.onTapGesture {
-                    interactor.showMoreDetails(for: model.title)
                 }
             }
             .onAppear(perform: {
                 interactor.loadDatas()
             })
-            .navigationTitle("Random Weather App")
         }
     }
 }
