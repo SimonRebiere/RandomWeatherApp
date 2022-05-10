@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1174611F281EB11F00CC68CA /* RandomWeatherAPPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1174611E281EB11F00CC68CA /* RandomWeatherAPPApp.swift */; };
+		1174611F281EB11F00CC68CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1174611E281EB11F00CC68CA /* AppDelegate.swift */; };
 		11746121281EB11F00CC68CA /* AllRegionWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11746120281EB11F00CC68CA /* AllRegionWeatherView.swift */; };
 		11746123281EB12100CC68CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11746122281EB12100CC68CA /* Assets.xcassets */; };
 		11746126281EB12100CC68CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11746125281EB12100CC68CA /* Preview Assets.xcassets */; };
@@ -22,6 +22,7 @@
 		11746157281ECAD900CC68CA /* LocationWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11746156281ECAD900CC68CA /* LocationWeatherService.swift */; };
 		1174615C2828288B00CC68CA /* TestAllRegionWeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1174615B2828288B00CC68CA /* TestAllRegionWeatherInteractor.swift */; };
 		1174615E282828E100CC68CA /* LocationWeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1174615D282828E100CC68CA /* LocationWeatherResponse.swift */; };
+		1174617D2829926D00CC68CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1174617C2829926D00CC68CA /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		1174611B281EB11F00CC68CA /* RandomWeatherAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomWeatherAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1174611E281EB11F00CC68CA /* RandomWeatherAPPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWeatherAPPApp.swift; sourceTree = "<group>"; };
+		1174611E281EB11F00CC68CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11746120281EB11F00CC68CA /* AllRegionWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRegionWeatherView.swift; sourceTree = "<group>"; };
 		11746122281EB12100CC68CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11746125281EB12100CC68CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -60,6 +61,8 @@
 		11746156281ECAD900CC68CA /* LocationWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWeatherService.swift; sourceTree = "<group>"; };
 		1174615B2828288B00CC68CA /* TestAllRegionWeatherInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAllRegionWeatherInteractor.swift; sourceTree = "<group>"; };
 		1174615D282828E100CC68CA /* LocationWeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWeatherResponse.swift; sourceTree = "<group>"; };
+		1174617B2829914500CC68CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1174617C2829926D00CC68CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,11 +113,13 @@
 		1174611D281EB11F00CC68CA /* RandomWeatherAPP */ = {
 			isa = PBXGroup;
 			children = (
+				1174617B2829914500CC68CA /* Info.plist */,
 				1174614B281EC18400CC68CA /* Scenes */,
 				11746148281EB15E00CC68CA /* Networker */,
-				1174611E281EB11F00CC68CA /* RandomWeatherAPPApp.swift */,
+				1174611E281EB11F00CC68CA /* AppDelegate.swift */,
 				11746122281EB12100CC68CA /* Assets.xcassets */,
 				11746124281EB12100CC68CA /* Preview Content */,
+				1174617C2829926D00CC68CA /* SceneDelegate.swift */,
 			);
 			path = RandomWeatherAPP;
 			sourceTree = "<group>";
@@ -317,7 +322,8 @@
 				11746150281EC35600CC68CA /* EndpointType.swift in Sources */,
 				11746157281ECAD900CC68CA /* LocationWeatherService.swift in Sources */,
 				11746121281EB11F00CC68CA /* AllRegionWeatherView.swift in Sources */,
-				1174611F281EB11F00CC68CA /* RandomWeatherAPPApp.swift in Sources */,
+				1174611F281EB11F00CC68CA /* AppDelegate.swift in Sources */,
+				1174617D2829926D00CC68CA /* SceneDelegate.swift in Sources */,
 				1174614E281EC1EB00CC68CA /* AllRegionWeatherInteractor.swift in Sources */,
 				11746155281EC6A800CC68CA /* LocationWeatherEndpoint.swift in Sources */,
 				11746152281EC37300CC68CA /* NetworkingError.swift in Sources */,
@@ -409,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -463,7 +469,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -484,7 +490,7 @@
 				DEVELOPMENT_TEAM = 4CBPX3XZBE;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = RandomWeatherAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -513,7 +519,7 @@
 				DEVELOPMENT_TEAM = 4CBPX3XZBE;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = RandomWeatherAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
