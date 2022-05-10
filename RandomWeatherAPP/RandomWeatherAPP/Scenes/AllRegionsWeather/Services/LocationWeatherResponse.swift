@@ -8,6 +8,7 @@
 import Foundation
 
 //Generated with https://app.quicktype.io/#l=go for speed of use
+//Chose to keep the whole model as it might take some time to remove all I don't need and time is limited 
 
 // MARK: - Welcome
 struct LocationWeatherResponse: Codable {

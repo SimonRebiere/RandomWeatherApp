@@ -32,8 +32,7 @@ struct AllRegionWeatherView: View {
                         }
                         Spacer()
                         AsyncImage(url: model.imageURL)
-                            .frame(width: 30, height: 30)
-                        
+                            .aspectRatio(contentMode: .fit)
                     }
                     if !model.detailHidden {
                         ScrollView(.horizontal) {
