@@ -11,7 +11,6 @@
 		11746121281EB11F00CC68CA /* AllRegionWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11746120281EB11F00CC68CA /* AllRegionWeatherView.swift */; };
 		11746123281EB12100CC68CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11746122281EB12100CC68CA /* Assets.xcassets */; };
 		11746126281EB12100CC68CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11746125281EB12100CC68CA /* Preview Assets.xcassets */; };
-		11746130281EB12100CC68CA /* RandomWeatherAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1174612F281EB12100CC68CA /* RandomWeatherAPPTests.swift */; };
 		1174613A281EB12100CC68CA /* RandomWeatherAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11746139281EB12100CC68CA /* RandomWeatherAPPUITests.swift */; };
 		1174613C281EB12100CC68CA /* RandomWeatherAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1174613B281EB12100CC68CA /* RandomWeatherAPPUITestsLaunchTests.swift */; };
 		1174614A281EB19100CC68CA /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11746149281EB19100CC68CA /* Networker.swift */; };
@@ -49,7 +48,6 @@
 		11746122281EB12100CC68CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11746125281EB12100CC68CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1174612B281EB12100CC68CA /* RandomWeatherAPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomWeatherAPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1174612F281EB12100CC68CA /* RandomWeatherAPPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWeatherAPPTests.swift; sourceTree = "<group>"; };
 		11746135281EB12100CC68CA /* RandomWeatherAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomWeatherAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11746139281EB12100CC68CA /* RandomWeatherAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWeatherAPPUITests.swift; sourceTree = "<group>"; };
 		1174613B281EB12100CC68CA /* RandomWeatherAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWeatherAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 		1174612E281EB12100CC68CA /* RandomWeatherAPPTests */ = {
 			isa = PBXGroup;
 			children = (
-				1174612F281EB12100CC68CA /* RandomWeatherAPPTests.swift */,
 				1174615B2828288B00CC68CA /* TestAllRegionWeatherInteractor.swift */,
 			);
 			path = RandomWeatherAPPTests;
@@ -335,7 +332,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11746130281EB12100CC68CA /* RandomWeatherAPPTests.swift in Sources */,
 				1174615C2828288B00CC68CA /* TestAllRegionWeatherInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
